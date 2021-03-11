@@ -6,8 +6,10 @@ Prerequisites:
 1. RGB or a multispectral imagery should be provided by the user.
 2. Specify a directory for empty folder before this scripts starts exporting all the indices in a form of image outputs.
 3. Shapefile (a polygon line drawn over the crops) should be provided by the user.
+
 Limitation of this algorithm: 
-1. Weeds won't get detected or identified if they are present in-between crop rows
+1. Weeds won't get detected or identified if they are present in-between crop rows.
+
 Credits:
 1. Original workflow in ArcGIS Pro was developed by Dr. J. Paulo Flores (Assistant Prof. at NDSU)
 2. Automation using Python scripting was developed by Nitin Rai (PhD Student)
