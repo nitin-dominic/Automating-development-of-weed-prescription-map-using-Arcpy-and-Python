@@ -1,1 +1,1 @@
-# Weed-Prescription-Map-on-ArcGIS-Pro
+# Weed Prescription Map using Arcpy using Python
