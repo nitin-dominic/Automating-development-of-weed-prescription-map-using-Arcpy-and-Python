@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # This script creates a weed map using several ArcGIS tools and a bit of Image Processing. 
 # It is based on the concept of Fishnet Grid and Thresholding technique. 
 # Prerequisites before using this algorithm/script:
@@ -15,6 +9,7 @@
 # Automation using Python scripting was developed by Nitin Rai (PhD Student)
 # Agricultural Engineering, Precision Agriculture
 # North Dakota State University, USA
+
 #################### Script starts here ########################################################################
 ################################################################################################################
 
@@ -55,8 +50,10 @@ print(band_count)
 # Excess = r'C:\Users\nitin.rai\Desktop\ArcGIS Pro\PAG654LABS\Lab7\Lab_Practice\Sunf_ExGr_AOI_Lab7.tif'
 # raster_dataset = gdal.Open(Excess)
 # env.outputCoordinateSystem = arcpy.SpatialReference("WGS_1984_UTM_Zone_14N")
+
 #################### Additional features in this script/algorithm #############################
 ###############################################################################################
+
 # Here the operation is dependent on band count. If the band count is equal to 5 then the script assumes it's a 5-band imagery
 # and starts calculating all the indices. More indices can be added to the workflow. Whereas, if the band count is greater than
 # 5, then an error message is displayed asking user to enter an imagery which is either 3-band or 5-band.
@@ -103,12 +100,12 @@ else:
     print ("Excess Green pyramids successfully calculated")
     # Sharpening the image so the objects (crops & weeds) details are highlighted
 sharpen_ExGreen = arcpy.ia.Convolution(ExGreen, 20)
-sharpen_ExGreen.save(r'E:/Nitin.Rai/ForPythonScripting/ExGreen_Sharpened.tif')
+sharpen_ExGreen.save(r'Your Directory/ExGreen_Sharpened.tif')
 print("You have successfully sharpened the Excess Green.tif file!")
 # Converting the above sharpened image into binary image, thresholding technique is applied here 
 # converting the imagery into 0 and 1.
 binary_raster = arcpy.ia.Threshold(sharpen_ExGreen)
-binary_raster.save(r"E:/Nitin.Rai/ForPythonScripting/ThresholdSharpen.tif")
+binary_raster.save(r"Your Directory/ThresholdSharpen.tif")
 print("You have successfully perfromed Imagery Thresholding!")
 # reclassify the raster
 # reclassField = "Value"
@@ -117,21 +114,21 @@ print("You have successfully perfromed Imagery Thresholding!")
 # outReclassify.save(r"D:\Datasets\ReclassifiesImagery.tif")
 # Converting Raster to Polygon (a shapefile is generated for the whole raster file)
 # objects within the raster file is 1s while all the rest is 0s
-arcpy.env.workspace = 'E:/Nitin.Rai/ForPythonScripting'
+arcpy.env.workspace = 'Your Directory'
 inRaster = "ThresholdSharpen.tif"
-outPolygons = r"E:/Nitin.Rai/ForPythonScripting/RasterToPolygonConvert.shp"
+outPolygons = r"Your Directory/RasterToPolygonConvert.shp"
 field = "VALUE"
 arcpy.RasterToPolygon_conversion(inRaster, outPolygons, "NO_SIMPLIFY", field)
 print("You have successfully converted Raster to Polygon!")
 # Selecting all the 1s so that we can export a shapefile for all the objects labeled 1s within the imagery
-arcpy.env.workspace = r'E:/Nitin.Rai/DatasetForPythonScripting'
+arcpy.env.workspace = r'Your Directory'
 polygonAttached = "RasterToPolygonConvert.shp"
 selectedAttributes = arcpy.SelectLayerByAttribute_management(polygonAttached, "NEW_SELECTION", '"gridcode" > 0')
 arcpy.CopyFeatures_management(selectedAttributes, 'Attributes_SelectedGridOne')
 # At this step, user provides a line shpaefile denoting crop rows.
-arcpy.env.workspace = r'E:/Nitin.Rai/DatasetForPythonScripting'
+arcpy.env.workspace = r'Your Directory'
 cropsline = "PAG_Sunf_rows.shp"
-rowsBuffered = r'E:/Nitin.Rai/DatasetForPythonScripting/ROI_Buffered3Inches'
+rowsBuffered = r'Your Directory'
 # Specifying buffer of 3 inches using the line shapefile provided by the user
 distanceField = "3 Inches"
 sideType = "FULL"
@@ -145,16 +142,16 @@ Buffered_CropsLine = arcpy.Buffer_analysis(cropsline, rowsBuffered, distanceFiel
 #                      r'D:\PAG654\Lab7\ErasedOutputAlgo')
 # Erase the polygon layer with the buffered layer
 # Setting the workspace in every step
-arcpy.env.workspace = r'E:/Nitin.Rai/DatasetForPythonScripting'
+arcpy.env.workspace = r'Your Directory'
 # Reading the shapefile which has ll the 1s (basically crops and weeds)
 polygon = "Attributes_SelectedGridOne.shp"
 # Using Buffer shapefile as an erase feature
 eraseFeature = "ROI_Buffered3Inches.shp"
 # Saving it for further application
-ErasedLayer = r'E:/Nitin.Rai/DatasetForPythonScripting/ErasedPolygonLayerFinal.shp'
+ErasedLayer = r'Your Directory/ErasedPolygonLayerFinal.shp'
 arcpy.Erase_analysis(polygon, eraseFeature, ErasedLayer)
 # Creating a Fishnet Tool
-env.workspace = r'E:\Nitin.Rai\DatasetForPythonScripting'
+env.workspace = r'EYour Directory'
 # This step is very important. It will create a Fishnet with the same coordinate and projected information. We can specify this
 # at the beginning of this script too so that all the created shapefiles are of same coordinate and projected information 
 # env.outputCoordinateSystem = arcpy.SpatialReference("WGS_1984_UTM_Zone_14N")
@@ -185,4 +182,3 @@ arcpy.CopyFeatures_management(AddedField, 'AddedFieldtotheFishnet')
 arcpy.env.workspace = r'E:\Nitin.Rai\DatasetForPythonScripting'
 LocationSelection = arcpy.SelectLayerByLocation_management(ErasedLayer, 'INTERSECT', outFeatureClass)
 arcpy.CopyFeatures_management(LocationSelection, 'IntersectFishnetwithErasedLayer')
-
