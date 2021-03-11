@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 import copy
 # Reading the imagery (can be .jpg or .png too) from the local HD
-RGB_imagery = r"E:/Nitin.Rai/ForPythonScripting/Sunf_AOI_Lab7_2021.tif"
+RGB_imagery = r"Your Directory/Sunf_AOI_Lab7_2021.tif"
 raster = rasterio.open(RGB_imagery)
 bands = [Raster(os.path.join(RGB_imagery, b))
          for b in arcpy.ListRasters()]
@@ -47,7 +47,7 @@ print(band_count)
 # Setting up the working directory
 # print(band_count)
 # Another way to open raster file
-# Excess = r'C:\Users\nitin.rai\Desktop\ArcGIS Pro\PAG654LABS\Lab7\Lab_Practice\Sunf_ExGr_AOI_Lab7.tif'
+# Excess = r'Your Directory\Sunf_ExGr_AOI_Lab7.tif'
 # raster_dataset = gdal.Open(Excess)
 # env.outputCoordinateSystem = arcpy.SpatialReference("WGS_1984_UTM_Zone_14N")
 
