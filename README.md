@@ -4,7 +4,8 @@ This algorithm imports Arcpy, and Rasterio packages in Python to create a weed p
 
 # Prerequisites: 
 1. RGB or a multispectral imagery should be provided by the user.
-2. Specify a directory for empty folder before this scripts starts exporting all the indices in a form of image outputs.
+2. Specify an directory with an empty folder before this scripts starts exporting all the indices (output images) or processed images.
+
 3. Shapefile (a polygon line drawn over the crops) should be provided by the user.
 
 # Limitation of this algorithm: 
@@ -15,3 +16,6 @@ This algorithm imports Arcpy, and Rasterio packages in Python to create a weed p
 2. Automation using Python scripting was developed by Nitin Rai (PhD Student)
 
 # Codes were developed at the Department of Agricultural and Biosystems Engineering at North Dakota State University, USA
+
+# Final image output looks somewhat like this based on location of weeds on the imagery:
+![weed](https://user-images.githubusercontent.com/68175121/110733196-27cd5d80-81eb-11eb-859b-ba662f105a59.jpg)
