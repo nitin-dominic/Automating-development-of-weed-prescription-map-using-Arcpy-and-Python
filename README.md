@@ -20,7 +20,7 @@ This algorithm imports Arcpy, and Rasterio packages in Python to create a weed p
 # Final image output looks somewhat like this based on location of weeds on the imagery:
 
 Legends:
-
 a. Red square: Weeds (Targets)
 b. Green Square: Either crops or soil (Non-targets) 
+
 ![weed](https://user-images.githubusercontent.com/68175121/110733196-27cd5d80-81eb-11eb-859b-ba662f105a59.jpg)
