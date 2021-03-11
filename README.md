@@ -13,3 +13,5 @@ Limitation of this algorithm:
 Credits:
 1. Original workflow in ArcGIS Pro was developed by Dr. J. Paulo Flores (Assistant Prof. at NDSU)
 2. Automation using Python scripting was developed by Nitin Rai (PhD Student)
+
+Codes were developed at the Department of Agricultural and Biosystems Engineering at North Dakota State University.
