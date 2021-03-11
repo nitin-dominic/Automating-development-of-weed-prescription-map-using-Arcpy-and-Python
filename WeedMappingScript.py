@@ -1,10 +1,4 @@
 # This script creates a weed map using several ArcGIS tools and a bit of Image Processing. 
-# It is based on the concept of Fishnet Grid and Thresholding technique. 
-# Prerequisites before using this algorithm/script:
-# 1. Imagery should be provided by the user. Either it should be RGB imagery or Multispectral. Several Indices can be 
-# calculated and exported in local drive bsaed on the imagery type provided
-# 2. Shapefile (a polygon line drawn over the crop rows) should be provided by the user.
-# Limitation of this algorithm: Weeds won't get detected or identified if they are present in-between crop rows
 # Original workflow in ArcGIS was developed by Dr. J. Paulo Flores (Assistant Prof. at NDSU)
 # Automation using Python scripting was developed by Nitin Rai (PhD Student)
 # Agricultural Engineering, Precision Agriculture
