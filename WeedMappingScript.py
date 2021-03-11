@@ -172,13 +172,13 @@ arcpy.CreateFishnet_management(outFeatureClass, origin_coordinate, yAxisCoordina
                                CellHeight, numRows, numCols, oppositeCorner,
                                labels, templateExtent, geometryType)
 # add a field to the created fishnet table
-arcpy.env.workspace = r'E:/Nitin.Rai/DatasetForPythonScripting'
+arcpy.env.workspace = r'Your Directory'
 inFeatures = "fishnet_10x10.shp"
 addfield = "Rate"
 fieldPrecision = 5
 AddedField = arcpy.AddField_management(inFeatures, addfield, "SHORT", fieldPrecision, field_is_nullable="NULLABLE")
 arcpy.CopyFeatures_management(AddedField, 'AddedFieldtotheFishnet')
 # Select layer by location
-arcpy.env.workspace = r'E:\Nitin.Rai\DatasetForPythonScripting'
+arcpy.env.workspace = r'Your Directory'
 LocationSelection = arcpy.SelectLayerByLocation_management(ErasedLayer, 'INTERSECT', outFeatureClass)
 arcpy.CopyFeatures_management(LocationSelection, 'IntersectFishnetwithErasedLayer')
