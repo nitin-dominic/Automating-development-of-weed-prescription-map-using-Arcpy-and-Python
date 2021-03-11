@@ -1,6 +1,6 @@
 Weed Prescription Map using Arcpy using Python
 
-This algorithm imports Arcpy, and Rasterio packages in Python to create a weed prescription map. A feature to calculate Excess Green and 4 different VIs, namely, NDSVI, NDRE, SAVI, and OSAVI canalso be calculated using the script. The script accepts either a multispectral imagery or an RGB imagery. Based on band count, it calculates the required indices. After indices calcualtion, it also performs image sharpening and thresholding thereby converting the whole image into a binary image. After that it converts objects within the image to polygons and perfroms weed identification and craetes a weed map based on Fishnet Grid technique.
+This algorithm imports Arcpy, and Rasterio packages in Python to create a weed prescription map. A feature to calculate Excess Green and 4 different VIs, namely, NDSVI, NDRE, SAVI, and OSAVI can also be calculated and exported to local drive using this script. The script accepts either a multispectral imagery or an RGB imagery. Based on band count, it calculates the required indices. After indices calcualtion, it also performs image sharpening and thresholding thereby converting the whole image into a binary image. After that it converts objects within the image to polygons and perfroms weed identification while creating a weed map using Fishnet Grid technique.
 
 Prerequisites: 
 1. RGB or a multispectral imagery should be provided by the user.
@@ -14,4 +14,4 @@ Credits:
 1. Original workflow in ArcGIS Pro was developed by Dr. J. Paulo Flores (Assistant Prof. at NDSU)
 2. Automation using Python scripting was developed by Nitin Rai (PhD Student)
 
-Codes were developed at the Department of Agricultural and Biosystems Engineering at North Dakota State University.
+Codes were developed at the Department of Agricultural and Biosystems Engineering at North Dakota State University, USA
