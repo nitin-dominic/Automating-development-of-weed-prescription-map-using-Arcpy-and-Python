@@ -15,7 +15,7 @@ This algorithm imports Arcpy, and Rasterio packages in Python to create a weed p
 1. Original workflow in ArcGIS Pro was developed by Dr. J. Paulo Flores (Assistant Prof. at NDSU)
 2. Automation using Python scripting was developed by Nitin Rai (PhD Student)
 
-# Final image output looks somewhat like this based on location of weeds on the imagery:
+# Final image output looks somewhat like this based on location of weeds in the imagery:
 
 Legends:
 a. Red square: Weeds (Targets),
